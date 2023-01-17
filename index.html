@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yayyy html css javascript test </title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+
+<div class="decideDiv">
+    <div class="personDiv">
+        <div class="personListDiv">
+            <h1>Names</h1>
+        <ul id="personList">
+                
+            </ul>
+        </div>
+
+        <div class="personButtons">
+            <button onclick="addPersonFunction()" class="personAddButton">+</button>
+            <button onclick="removePersonFunction()" class="personRemoveButton">-</button>
+            <button onclick="removeAllPeopleFunction()" class="personRemoveAllButton">x</button>
+            <br>
+            <input id="personName" placeholder="Type Name Here" type="text">
+
+        </div>
+    </div>
+
+    <div class="themeDiv">
+        <div class="themeListDiv">
+            <h1>Themes</h1>
+            <ul id="themeList">
+
+            </ul>
+        <div class="themeButtons">
+            <button onclick="addThemeFunction()">+</button>
+            <button onclick="removeThemeFunction()">-</button>
+            <button onclick="removeAllThemesFunction()">x</button>
+            <br>
+            <input id="themeName" placeholder="Type Theme Here" type="text">
+
+        </div>
+    </div>
+    </div>
+</div>
+
+<div class="resultDiv">
+
+    <div class="box">
+        <div id="themeHeader">
+            <p id="firstPerson">First Person</p>
+            <br>
+            <p>+</p>
+            <br>
+            <p id="secondPerson">Second Person </p>
+            <p id="themeResult"></p>
+
+        </div>
+        <div id="calculate">
+            Calculate
+        </div>
+        <div id="history">
+            <h1>History</h1>
+            <ul id="historyList">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="xjavascript.js"></script>
+</body>
+</html>

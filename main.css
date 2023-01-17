@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: darkcyan;
+}
+
+
+ul {
+    list-style-type: none;
+  }
+
+.personDiv{
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    padding: 7%;
+    border-radius: 10%;
+    list-style-type: none;
+}
+
+#personList{
+    padding: 0%;
+}
+
+#themeList{
+    padding: 0%;
+}
+
+.themeDiv{    
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    padding-left: 7%;
+    padding: 7%;
+    border-radius: 10%;
+
+
+}
+
+.decideDiv{
+    flex: auto;
+    padding: 5%;
+    float: left;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.resultDiv{
+    float: right;
+    padding: 5%;
+    text-align: center;
+}
+
+.box{
+    text-align: center;
+    padding: 5%;
+    background-color: white;
+    width: 800px;
+    height: 800px;
+    border-radius: 10%;
+}
+
+#themeHeader{
+    margin: auto;
+    width: 400px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: darkcyan;
+}
+
+#calculate{
+    
+    margin: auto;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    background-color: darkcyan;
+}
+
+#history{
+    margin: auto;
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    background-color: darkcyan;
+    list-style-type: none;
+
+}
