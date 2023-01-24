@@ -1,89 +1,161 @@
 body{
-    margin: 0;
-    padding: 0;
-    background-color: darkcyan;
+    background-image: url(img/white-crumpled-paper-texture-background-design-space-white-tone_1258-78696.png);
 }
 
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
-ul {
-    list-style-type: none;
-  }
+/* ----------------------- Container ------------------------ */
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+
+/* ----------------------- Person --------------------------- */
+
 
 .personDiv{
-    background-color: white;
-    height: 400px;
-    width: 400px;
-    padding: 7%;
-    border-radius: 10%;
-    list-style-type: none;
+    position: relative;
+    background-color: #c7bda7;
+    width: 25%;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    /* padding: 30px 100px; */
+    height: 500px;
 }
+
 
 #personList{
-    padding: 0%;
-}
-
-#themeList{
-    padding: 0%;
-}
-
-.themeDiv{    
-    background-color: white;
-    height: 400px;
-    width: 400px;
-    padding-left: 7%;
-    padding: 7%;
-    border-radius: 10%;
+    margin: 0;
+    list-style: none;
+    padding: 0;
 
 
 }
 
-.decideDiv{
-    flex: auto;
-    padding: 5%;
-    float: left;
-    text-align: center;
-    justify-content: center;
+.personButtons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
 
 }
+
+.personButtons>*{
+    margin: 2px;
+    width: 80%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+/* ------------------------------ Result Div --------------------- */
 
 .resultDiv{
-    float: right;
-    padding: 5%;
+    position: relative;
+    background-color: #c7bda7;
+    width: 500px;
+    max-width: 500px;
+    padding: 30px 50px;
     text-align: center;
-}
-
-.box{
-    text-align: center;
-    padding: 5%;
-    background-color: white;
-    width: 800px;
-    height: 800px;
-    border-radius: 10%;
-}
-
-#themeHeader{
-    margin: auto;
-    width: 400px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
     height: 200px;
-    border-radius: 50%;
-    background-color: darkcyan;
+    text-align: center;
 }
 
 #calculate{
-    
-    margin: auto;
-    border-radius: 100%;
-    width: 300px;
-    height: 300px;
-    background-color: darkcyan;
+    display: flex;
+    height: 50px;
+    width: 100px;
+    background-color: lightblue;
+    flex-wrap: wrap;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    bottom: 20px;
+    margin-left: 30%;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
 }
 
-#history{
+/* ----------------------------------History Div --------------------------*/
+
+.historyDiv{
+    position: relative;
+    background-color: #c7bda7;
+    max-width: 250px;
+    padding: 30px 50px;
     margin: auto;
-    border-radius: 100%;
+
+    margin-top: 100px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    height: 200px;
+}
+
+#historyList{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+
+}
+
+/* -------------------------------- Theme Div------------------------- */
+
+.themeDiv{
+    position: relative;
+    background-color: #c7bda7;
+    width: 25%;
+    padding: 30px 50px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    /* padding: 30px 100px; */
+    height: 500px;
+}
+
+#themeHeader{
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#themeHeader>div{
     width: 300px;
-    height: 300px;
-    background-color: darkcyan;
-    list-style-type: none;
+    max-width: 300px;
+}
+
+#themeList{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+
+
+}
+
+.themeButtons{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+}
+
+.themeButtons>*{
+    margin: 2px;
+    width: 80%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }

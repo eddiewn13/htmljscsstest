@@ -1,17 +1,19 @@
-let array = [];
-let number = 0;
-let themeArray = ["70s", "80s", "90s", "Rock & Roll", "Disco", "Blues"];
+let personArray = [];
+let startPickedAmount = 0;
+let themeArray = ["50s","60s","70s", "80s", "90s", "Jazz", "Superhjältar", "Antagonister", "Rustisk och robust"];
 let themeHistory = [];
 
+
+
 function saveData() {
-    localStorage.setItem("array", JSON.stringify(array));
+    localStorage.setItem("personArray", JSON.stringify(personArray));
     localStorage.setItem("themeArray", JSON.stringify(themeArray));
     localStorage.setItem("themeHistory", JSON.stringify(themeHistory));
 }
 
 function loadData() {
-    if (localStorage.array != null) {
-        array = JSON.parse(localStorage.getItem("array"));
+    if (localStorage.personArray != null) {
+        personArray = JSON.parse(localStorage.getItem("personArray"));
     }
     if (localStorage.themeArray != null) {
         themeArray = JSON.parse(localStorage.getItem("themeArray"))
@@ -36,7 +38,6 @@ function loadHistoryList() {
 function loadThemeList() {
     loadData();
     let list = document.getElementById("themeList");
-    console.log(themeArray)
     themeArray.forEach((item) => {
         let li = document.createElement("li");
         li.innerText = item;
@@ -45,14 +46,12 @@ function loadThemeList() {
     saveData();
 }
 
-function addThemeList() {
 
-}
 
 function loadPeopleList() {
     loadData();
     let list = document.getElementById("personList")
-    array.forEach((item) => {
+    personArray.forEach((item) => {
         let li = document.createElement("li");
         li.innerText = item;
         list.appendChild(li);
@@ -67,14 +66,14 @@ function removeAllPeopleFunction() {
         li.parentNode.removeChild(li);
     }
 
-    array = [];
+    personArray = [];
     saveData();
 }
 
 function removeAllThemesFunction() {
     loadData();
 
-    themeArray = ["70s", "80s", "90s", "Rock & Roll", "Disco", "Blues"];
+    themeArray = ["50s", "60s","70s", "80s", "90s", "Jazz", "Superhjältar", "Antagonister", "Rustisk och robust"];
     saveData();
 
 
@@ -119,10 +118,10 @@ function addPersonFunction() {
     } else {
         let person = [
             this.name = name,
-            this.number = number,
+            this.startPickedAmount = startPickedAmount,
         ]
 
-        array.push(person)
+        personArray.push(person)
 
         saveData();
 
@@ -151,7 +150,7 @@ function removeThemeFunction() {
 
 function removePersonFunction() {
     loadData();
-    array.pop();
+    personArray.pop();
     saveData();
 
     let list = document.querySelectorAll('#personList li')
@@ -168,40 +167,36 @@ function removePersonFunction() {
 document.getElementById("calculate").addEventListener("click", calculateThemePerson);
 
 function calculateThemePerson() {
-    if (array.length < 2) {
+    if (personArray.length < 2) {
         alert("You need more names")
     }else{
-    console.log("im clicked");
     loadData()
 
     let chosenFirst;
     let chosenSecond;
     let theme;
-    let firstRandom = Math.floor(Math.random(1) * array.length)
+    let firstRandom = Math.floor(Math.random(1) * personArray.length)
     let secondRandom
 
-    chosenFirst = array[firstRandom]
+    chosenFirst = personArray[firstRandom]
     do {
-        console.log("hello1")
-        secondRandom = Math.floor(Math.random(1) * array.length)
-        chosenSecond = array[secondRandom]
+        secondRandom = Math.floor(Math.random(1) * personArray.length)
+        chosenSecond = personArray[secondRandom]
     } while (firstRandom == secondRandom)
 
-    array[firstRandom][1]++;
-    array[secondRandom][1]++;
+    personArray[firstRandom][1]++;
+    personArray[secondRandom][1]++;
 
     theme = themeArray[Math.floor(Math.random(1) * themeArray.length)];
     while (themeHistory.includes(theme)) {
-        console.log("hello2")
         theme = themeArray[Math.floor(Math.random(1) * themeArray.length)];
     }
 
 
-    console.log(array)
-    document.getElementById("firstPerson").innerHTML = "First person = " + chosenFirst;
-    document.getElementById("secondPerson").innerHTML = "Second person = " + chosenSecond;
+    document.getElementById("firstPerson").innerHTML = chosenFirst;
+    document.getElementById("secondPerson").innerHTML = chosenSecond;
 
-    document.getElementById("themeResult").innerHTML = "Theme = " + theme;
+    document.getElementById("themeResult").innerHTML = theme;
 
 
 
@@ -216,7 +211,6 @@ function calculateThemePerson() {
     let personList = document.querySelectorAll('#personList li')
     for (let i = 0; li = personList[i]; i++) {
         li.parentNode.removeChild(li);
-        console.log("Hello3")
     }
     loadPeopleList();
 
@@ -224,7 +218,6 @@ function calculateThemePerson() {
     let historyList = document.querySelectorAll('#historyList li')
     for (let i = 0; li = historyList[i]; i++) {
         li.parentNode.removeChild(li);
-        console.log("Hello3")
     }
     loadHistoryList();
 }
