@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme picker</title>
-<link rel="stylesheet" href="main.css">
+    <title>Theme Organizer</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
 
-<div class="container">
-    <div class="personDiv">
-        <div class="personListDiv">
-            <h1>Names</h1>
-            <ul id="personList">
-                
-            </ul>
-        </div>
+    <div class="container" style="">
+        <div id="personDiv" style="display: none">
+            <div class="personListDiv">
+                <h1>Names</h1>
+                <ul id="personList">
 
-        <div class="personButtons">
-            <button onclick="addPersonFunction()" class="personAddButton">Add person</button>
-            <button onclick="removePersonFunction()" class="personRemoveButton">Remove Person</button>
-            <button onclick="removeAllPeopleFunction()" class="personRemoveAllButton">Clear List</button>
-            <input id="personName" placeholder="Type Name Here" type="text">
-
-        </div>
-    </div>
-<div class="resultAndHistoryDiv">
-    <div class="resultDiv">
-
-            <div id="themeHeader">
-                <div>
-                    <h3>First</h1>
-                    <p id="firstPerson"></p>
-              </div>
-              <div>
-                <h3>Theme</h1>
-                <p id="themeResult"></p>
-              </div>
-              <div>
-                <h3>Second</h1>
-                <p id="secondPerson"></p>
+                </ul>
             </div>
 
+            <div class="personButtons">
+                <button onclick="addPersonFunction()" class="personAddButton">Add person</button>
+                <button onclick="removePersonFunction()" class="personRemoveButton">Remove Person</button>
+                <button onclick="removeAllPeopleFunction()" class="personRemoveAllButton">Clear List</button>
+                <input id="personName" placeholder="Type Name Here" type="text">
+
             </div>
-
-            <div id="calculate">
-                Calculate
-            </div>
-
-    </div>
-
-    <div class="historyDiv">
-            <h1>History</h1>
-            <ul id="historyList">
-
-            </ul>
-    </div>
-</div>
-
-    <div class="themeDiv">
-        <div class="themeListDiv">
-            <h1>Themes</h1>
-            <ul id="themeList">
-
-            </ul>
-        <div class="themeButtons">
-            <button onclick="addThemeFunction()">Add Theme</button>
-            <button onclick="removeThemeFunction()">Remove Theme</button>
-            <button onclick="removeAllThemesFunction()">Clear List</button>
-            <br>
-            <input id="themeName" placeholder="Type Theme Here" type="text">
-
         </div>
-    </div>
-</div>
+        <div id="resultAndHistoryDiv" style="display: none">
+            <div id="resultDiv">
 
+                <div id="themeHeader">
+                    <div>
+                        <h3>First</h1>
+                            <p id="firstPerson"></p>
+                    </div>
+                    <div>
+                        <h3>Theme</h1>
+                            <p id="themeResult"></p>
+                        </div>
+                            <div>
+                                <h3>Second</h1>
+                            <p id="secondPerson"></p>
+                    </div>
 
-<script src="xjavascript.js"></script>
+                </div>
+
+                <div id="calculate">
+                    Calculate
+                </div>
+
+            </div>
+
+            <div id="historyDiv">
+                <h1>History</h1>
+                <ul id="historyList">
+
+                </ul>
+            </div>
+        </div>
+
+        <div id="themeDiv" style="display: none;">
+            <div class="themeListDiv">
+                <h1>Themes</h1>
+                <ul id="themeList">
+
+                </ul>
+                <div class="themeButtons">
+                    <button onclick="addThemeFunction()">Add Theme</button>
+                    <button onclick="removeThemeFunction()">Remove Theme</button>
+                    <button onclick="removeAllThemesFunction()">Clear List</button>
+                    <br>
+                    <input id="themeName" placeholder="Type Theme Here" type="text">
+
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="switch">
+                <button id="peopleEditButton" onclick="showPeopleEdit()">Edit People</button>
+                <button id="showCalculateButton" onclick="showCalculate()">Calculate</button>
+                <button id="themeEditButton" onclick="showThemeEdit()">Edit Theme</button>
+        </div>
+        <script src="xjavascript.js"></script>
 </body>
+
 </html>

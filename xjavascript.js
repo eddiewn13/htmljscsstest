@@ -2,13 +2,19 @@ let personArray = [];
 let startPickedAmount = 0;
 let themeArray = ["50s","60s","70s", "80s", "90s", "Jazz", "Superhjältar", "Antagonister", "Rustisk och robust"];
 let themeHistory = [];
+let personCooldown = [];
 
-
+let test = []
+let person;
+test = [
+    
+]
 
 function saveData() {
     localStorage.setItem("personArray", JSON.stringify(personArray));
     localStorage.setItem("themeArray", JSON.stringify(themeArray));
     localStorage.setItem("themeHistory", JSON.stringify(themeHistory));
+    localStorage.setItem("personCooldown", JSON.stringify(personCooldown));
 }
 
 function loadData() {
@@ -20,6 +26,9 @@ function loadData() {
     }
     if (localStorage.themeHistory != null) {
         themeHistory = JSON.parse(localStorage.getItem("themeHistory"))
+    }
+    if (localStorage.personCooldown != null){
+        personCooldown = JSON.parse(localStorage.getItem("personCooldown"))
     }
 
 }
@@ -167,38 +176,49 @@ function removePersonFunction() {
 document.getElementById("calculate").addEventListener("click", calculateThemePerson);
 
 function calculateThemePerson() {
-    if (personArray.length < 2) {
+    if (personArray.length < 3) {
         alert("You need more names")
     }else{
     loadData()
 
-    let chosenFirst;
-    let chosenSecond;
+
+    
+
+    let personOne;
+    personOne = personArray[Math.floor(Math.random(1) * personArray.length)];
+    console.log(personOne)
+    console.log(personCooldown.includes(personOne));
+
+    while (personCooldown.includes(personOne)) {
+
+        console.log(personCooldown)
+
+        personOne = personArray[Math.floor(Math.random(1) * personArray.length)]
+    }
+
+
+ 
     let theme;
-    let firstRandom = Math.floor(Math.random(1) * personArray.length)
-    let secondRandom
-
-    chosenFirst = personArray[firstRandom]
-    do {
-        secondRandom = Math.floor(Math.random(1) * personArray.length)
-        chosenSecond = personArray[secondRandom]
-    } while (firstRandom == secondRandom)
-
-    personArray[firstRandom][1]++;
-    personArray[secondRandom][1]++;
-
     theme = themeArray[Math.floor(Math.random(1) * themeArray.length)];
     while (themeHistory.includes(theme)) {
         theme = themeArray[Math.floor(Math.random(1) * themeArray.length)];
     }
 
 
-    document.getElementById("firstPerson").innerHTML = chosenFirst;
-    document.getElementById("secondPerson").innerHTML = chosenSecond;
+
+
+    document.getElementById("firstPerson").innerHTML = personOne;
+    // document.getElementById("secondPerson").innerHTML = secondPerson;
 
     document.getElementById("themeResult").innerHTML = theme;
 
 
+    if(personCooldown.length > 2) {
+        personCooldown.shift();
+        personCooldown.push(personOne)
+    }else{
+        personCooldown.push(personOne);
+    }
 
     if (themeHistory.length > 4) {
         themeHistory.shift();
@@ -222,6 +242,36 @@ function calculateThemePerson() {
     loadHistoryList();
 }
 
+}
+
+function showPeopleEdit(){
+    let themeDiv = document.getElementById("themeDiv");
+    let personDiv = document.getElementById("personDiv");
+    let resultDiv = document.getElementById("resultAndHistoryDiv");
+
+    resultDiv.style.display = "none"
+    themeDiv.style.display = "none";
+    personDiv.style.display = "block";
+}
+
+function showCalculate(){
+    let themeDiv = document.getElementById("themeDiv");
+    let personDiv = document.getElementById("personDiv");
+    let resultDiv = document.getElementById("resultAndHistoryDiv");
+
+    resultDiv.style.display = "block"
+    themeDiv.style.display = "none";
+    personDiv.style.display = "none"
+}
+
+function showThemeEdit(){
+    let themeDiv = document.getElementById("themeDiv");
+    let personDiv = document.getElementById("personDiv");
+    let resultDiv = document.getElementById("resultAndHistoryDiv");
+
+    resultDiv.style.display = "none"
+    themeDiv.style.display = "block";
+    personDiv.style.display = "none"
 }
 
 loadPeopleList();
